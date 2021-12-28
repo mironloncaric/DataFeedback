@@ -1,0 +1,19 @@
+.hidetoggle {
+    display: none;
+}
+.navlink {
+    text-decoration: none;
+    font-weight:300;
+    color: #2C2B3B;
+    text-shadow: 5px 5px 5px lightgray;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.navlogo {
+    font-family: arial;
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    font-weight: 700;
+    font-size: 25px;
+}
