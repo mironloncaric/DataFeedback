@@ -41,7 +41,6 @@ export default function Izvori() {
           http://psihometar.blogspot.com/
         </a>
       </p>
-      <hr />
       <h5>Ostali izvori u kojima su korištene ove skale:</h5>
       <p>
         Vrdoljak, G., & Vlahović-Štetić, V. (2018). Odnos ciljeva postignuća,
@@ -82,7 +81,6 @@ export default function Izvori() {
         <br />
         Dostupno <a href="https://www.bib.irb.hr/724700">ovdje.</a>
       </p>
-      <hr />
       <h2>Izvori za mjerne instrumente koji nisu u otvorenom pristupu</h2>
       <hr />
       <h5>

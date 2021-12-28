@@ -31,14 +31,14 @@ export default function ResultComponent(props) {
                 - 50. percentil)
               </p>
             )}
-          {props.propsSums[item] >= granice[item][1] &&
-            props.propsSums[item] < granice[item][2] && (
+          {props.propsSums[item] > granice[item][1] &&
+            props.propsSums[item] <= granice[item][2] && (
               <p>
                 Važ rezultat je prosječan i spada u srednjih 25% rezultata (51.
                 - 74. percentil)
               </p>
             )}
-          {props.propsSums[item] >= granice[item][2] && (
+          {props.propsSums[item] > granice[item][2] && (
             <p>
               Važ rezultat je iznadprosječan i spada u četvrti kvartil rezultata
               (25% najviših rezultata za ispitanike vašeg spola i dobi)
@@ -46,6 +46,7 @@ export default function ResultComponent(props) {
           )}
         </div>
       ))}
+      <hr />
       <div
         style={{
           height: "auto",
@@ -69,28 +70,28 @@ export default function ResultComponent(props) {
                     (props.propsSums[key] <= granice[key][0] &&
                       (positive[key]
                         ? // positive, small value
-                          "rgba(107, 255, 250, 0.6)"
+                          "rgba(255, 154, 162, 0.7)"
                         : // negative, small value
-                          "rgba(204, 90, 90, 0.6)")) ||
+                          "rgba(199, 206, 234, 0.7)")) ||
                     (props.propsSums[key] > granice[key][0] &&
                       props.propsSums[key] <= granice[key][1] &&
                       (positive[key]
                         ? // positive, medium value
-                          "rgba(217, 213, 95, 0.6)"
+                          "rgba(255, 218, 193, 0.7)"
                         : // negative, medium value
-                          "rgba(84, 214, 75, 0.6)")) ||
+                          "rgba(181, 234, 215, 0.7)")) ||
                     (props.propsSums[key] > granice[key][1] &&
                       props.propsSums[key] <= granice[key][2] &&
                       (positive[key]
-                        ? "rgba(84, 214, 75, 0.6)"
-                        : "rgba(217, 213, 95, 0.6)")) ||
+                        ? "rgba(181, 234, 215, 0.7)"
+                        : "rgba(255, 218, 193, 0.7)")) ||
                     // negative, medium value
                     (props.propsSums[key] > granice[key][2] &&
                       (positive[key]
                         ? // negative, small value
-                          "rgba(204, 90, 90, 0.6)"
+                          "rgba(199, 206, 234, 0.7)"
                         : // positive, small value
-                          "rgba(107, 255, 250, 0.6)")) ||
+                          "rgba(255, 154, 162, 0.7)")) ||
                     "rgba(255, 206, 86, 1)"
                 ),
                 borderColor: Object.keys(granice).map(
@@ -98,28 +99,28 @@ export default function ResultComponent(props) {
                     (props.propsSums[key] <= granice[key][0] &&
                       (positive[key]
                         ? // positive, small value
-                          "rgba(107, 255, 250, 0.6)"
+                          "rgba(255, 154, 162, 1)"
                         : // negative, small value
-                          "rgba(204, 90, 90, 0.6)")) ||
+                          "rgba(199, 206, 234, 1)")) ||
                     (props.propsSums[key] > granice[key][0] &&
                       props.propsSums[key] <= granice[key][1] &&
                       (positive[key]
                         ? // positive, medium value
-                          "rgba(217, 213, 95, 0.6)"
+                          "rgba(255, 218, 193, 1)"
                         : // negative, medium value
-                          "rgba(84, 214, 75, 0.6)")) ||
+                          "rgba(181, 234, 215, 1)")) ||
                     (props.propsSums[key] > granice[key][1] &&
                       props.propsSums[key] <= granice[key][2] &&
                       (positive[key]
-                        ? "rgba(84, 214, 75, 0.6)"
-                        : "rgba(217, 213, 95, 0.6)")) ||
+                        ? "rgba(181, 234, 215, 1)"
+                        : "rgba(255, 218, 193, 1)")) ||
                     // negative, medium value
                     (props.propsSums[key] > granice[key][2] &&
                       (positive[key]
                         ? // negative, small value
-                          "rgba(204, 90, 90, 0.6)"
+                          "rgba(199, 206, 234, 1)"
                         : // positive, small value
-                          "rgba(107, 255, 250, 0.6)")) ||
+                          "rgba(255, 154, 162, 1)")) ||
                     "rgba(255, 206, 86, 1)"
                 ),
                 borderWidth: 1,
@@ -156,6 +157,43 @@ export default function ResultComponent(props) {
           }}
         />{" "}
       </div>{" "}
+      <hr />
+      <p>
+        Na grafičkim prikazima prosječan rezultat za skupinu određenog spola i
+        dobi označen je sivom bojom. Rezultati osobe za koju se izrađuje profil
+        označeni su različitim bojama s obzirom na povezanost s proaktivnom
+        samoregulacijom učenja*. Proaktivna samoregulacija učenja povezana je s
+        osobinama i aktivnostima koje vode napretku u usvajanju znanja, vještina
+        i povećava vjerojatnost aktivnog korištenje usvojenih znanja i vještina.
+      </p>
+      <p>
+        Na nekim skalama za to su poticajni iznadprosječni (51-75 percentil)
+        rezultati i izrazito iznadprosječni rezultati (više od 75-og
+        percentila), a u nekim ispodprosječni (26-50 percentil) i izrazito
+        ispodprosječni rezultati (do 25-og percentila). Rezultati povezani s
+        povećanjem proaktivne samoregulacije učenja poticajne za ulaganje truda
+        u stjecanje znanja i vještina uz želju za njihovim aktivnim korištenjem
+        označeni su zelenom i tirkiznom bojom. Rezultati koji su povezani sa
+        smanjenjem proaktivne samoregulacije označeni su žutom ili crvenom
+        bojom.{" "}
+      </p>
+      <p>
+        Poželjan profil je u zelenoj boji uz posebno pozitivne karakteristike
+        izražene tirkiznom bojom na pojedinim mjerama. Žuta boja ne mora
+        ukazivati na probleme, ali crvena boja ukazuje na područja na kojima je
+        potrebno dodatno raditi. Pretežito crvena boja može ukazivati na obrazac
+        izostanka proaktivne samoregulacije i naučenu bespomoćnost ili na
+        samoregulaciju prema ciljevima učenja koji nisu optimalni. Pretežito
+        crvena boja na većini mjera može ukazivati i na poziv u pomoć ili na
+        provokaciju, dok pretežito tirkizna boja na većini mjera može ukazivati
+        na sklonost davanju socijalno poželjnih odgovora. Oba ekstremna obrasca
+        mogu ukazivati na potrebu za pažnjom. Konačnu interpretaciju mora uz
+        dodatne informacije donesti kvalificirana osoba.
+      </p>
+      <p>
+        *Za druge kriterije (npr. prosječan školski uspjeh) shema boja je
+        drugačija i nije dio automatiziranih izvještaja.
+      </p>
     </div>
   );
 }

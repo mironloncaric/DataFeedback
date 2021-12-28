@@ -1,28 +1,48 @@
 import { useEffect } from "react";
 import Link from "next/link";
-import landingImage from "../landing-page.jpg";
 import { scales } from "../scales.js";
 import Image from "next/image";
+import styles from "../styles/index.module.css";
 
 export default function LandingPage() {
   const list = Object.keys(scales);
   return (
     <>
       <div className="landing-page-poster">
-        <Image layout="fill" src={landingImage} />
         <div className="info">
           <h3 className="title">Data Feedback HR</h3>
-          <hr />
+          <hr className={styles.hrdark} />
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            gravida fringilla odio, eget pharetra neque condimentum sit amet.
-            Orci varius natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Aenean maximus diam sit amet commodo
-            hendrerit. Nam porta metus et turpis consequat pulvinar. Etiam sed
-            varius nulla. Mauris ut.
+            Data Feedback HR je regionalni sustava koji olakšava prikupljanje
+            podataka, automatizira obradu podataka i izvještavanje o rezultatima
+            na prikupljenim podacima.
           </p>
         </div>
       </div>
+
+      <hr className={styles.landinghr} />
+
+      <div id="info" className={styles.description}>
+        <h5>Informacije</h5>
+        <p>
+          Za testove, skale i upitnike s normama u otvorenom pristupu imate
+          mogućnost ispunjavanja ili ukoliko ste imali primjenu na papirnatioj
+          verziji, unošenja rezultata koji se automatski uspoređuju s tablicama
+          normi. Nakon ispunjavanja ili unošenja sumarnih rezultata dobivate
+          izvještaj o usporedbi rezultata s normama u otvorenom pristupu.
+        </p>
+        <p>
+          Za testove skale i upitnike čije norme nisu u otvorenom pristupu
+          dostupne su vam samo demo verzije sustava za ispunjavanje i
+          izvještavanje pri čemu se ne koriste norme u vlasništvu izdavača tih
+          mjernih instrumenata. Ukoliko ovaj sustav želite koristiti za
+          olakšavanje prikupljanja i/ili izvještavanja s mjernim instrumentima
+          čija ste prava korištenja kupili od izdavača, kontaktirajte nas za
+          dodatne informacije.
+        </p>
+      </div>
+
+      <hr className={styles.landinghr} />
 
       <div className="items-grid">
         {list.map((key, index) => (

@@ -1,0 +1,10 @@
+.img {
+    width: 90px;
+    height: 90px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.miron {background-image: url("../images/Miron.jpg");}
+.antonia {background-image: url("../images/Antonia.jpg");}
+.darko {background-image: url("../images/Darko.jpg");}

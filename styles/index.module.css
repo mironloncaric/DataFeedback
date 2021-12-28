@@ -1,0 +1,14 @@
+.description {
+    width: 70%;
+    text-align: center;
+    margin: 20px auto;
+}
+.description p {
+    margin-bottom: 20px;
+}
+.landinghr {
+    width: 80%;
+}
+.hrdark {
+    border: gray solid 1px;
+}

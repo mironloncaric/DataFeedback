@@ -21,10 +21,10 @@ export default function Navbar() {
             <Link href="/izvori">
               <a className={styles.navlink}>Izvori</a>
             </Link>
-            <Link href="/">
+            <Link href="/onama">
               <a className={styles.navlink}>O nama</a>
             </Link>
-            <Link href="/">
+            <Link href="/suradnje">
               <a className={styles.navlink}>Suradnje</a>
             </Link>
           </div>
