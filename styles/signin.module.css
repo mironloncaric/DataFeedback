@@ -1,0 +1,26 @@
+.logincontainer {
+    width: 95%;
+    max-width: 400px;
+    position: relative;
+    margin: 15vh auto;
+    background-color: white;
+    padding: 20px 10px;
+    z-index: 5;
+}
+.loginbackground {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(204, 204, 204, 0.4);
+    z-index: 4;
+    top: 0;
+}
+.quitlogin {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 4;
+}

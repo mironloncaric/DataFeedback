@@ -34,14 +34,23 @@ p {
     font-size: 12px;
     font-weight: 1000;
 }
-.text-align-center { text-align: center }
-.grid-50 {
+.success {
+    height: 60px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgreen;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 1000;
 }
-.grid-50 input {
-    width: 49.6%;
+.text-align-center { text-align: center }
+.grid-50 {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
 }
 .grid-30 {
     display: flex;
@@ -104,6 +113,14 @@ nav {
     nav {
         flex-wrap: wrap
     }
+    nav .auth {
+	border-left: none;
+	margin: 0
+    }
+    nav .auth button {
+	margin: 15px 0;
+	display: block;
+    }
 }
 hr {
     border: 1px lightgray solid;
@@ -113,11 +130,11 @@ hr {
     nav hr {
 	display: none;
     }
-    nav .auth-links {
-	border-left: solid gray 1px;
+    nav .auth {
+	border-left: solid 1px lightgray;
     }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     p {
 	font-size: 0.8rem;
     }

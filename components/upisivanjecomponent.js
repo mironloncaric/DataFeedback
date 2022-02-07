@@ -29,10 +29,15 @@ export default function IspunjavanjeComponent(props) {
             type="number"
             value={itemsValue[key]}
             onChange={(e) => {
-              let temp = itemsValue;
-              temp[key] = e.target.value;
-              setItemsValue(() => ({ ...temp }));
-              console.log(itemsValue);
+              if (
+                e.target.value <= props.scale.n_skala[key] * 5 &&
+                e.target.value >= 0
+              ) {
+                let temp = itemsValue;
+                temp[key] = e.target.value;
+                setItemsValue(() => ({ ...temp }));
+                console.log(itemsValue);
+              }
             }}
           />
         </div>
@@ -43,7 +48,11 @@ export default function IspunjavanjeComponent(props) {
           name="age"
           type="number"
           value={age}
-          onChange={(e) => setAge(e.target.value)}
+          onChange={(e) =>
+            e.target.value >= 11 &&
+            e.target.value <= 14 &&
+            setAge(e.target.value)
+          }
         />
         <select
           name="gender"
@@ -57,6 +66,10 @@ export default function IspunjavanjeComponent(props) {
       <button
         className="align-center btn-outline"
         onClick={() => {
+          Object.keys(props.scale.sumsImena).forEach((key) => {
+            console.log(key);
+            if (!itemsValue[key]) itemsValue[key] = 0;
+          });
           console.log(itemsValue);
           props.setPropsSums(itemsValue);
           props.setPropsAge(age);

@@ -18,7 +18,8 @@ export default function ResultComponent(props) {
       {Object.keys(granice).map((item, key) => (
         <div key={item}>
           <h5>{sumsImena[item]}</h5>
-          {props.propsSums[item] <= granice[item][0] && (
+          {(!props.propsSums[item] ||
+            props.propsSums[item] <= granice[item][0]) && (
             <p>
               Vaš rezultat je ispodprosječan i spada u prvi kvartil rezultata
               (25% najnižih rezultata za ispitanike vašeg spola i dobi)

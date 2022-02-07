@@ -20,7 +20,7 @@ export default function IspunjavanjeComponent(props) {
 
   useEffect(() => {
     if (Object.keys(itemsValue).length < props.scale.pitanja.length)
-      setError("Molim ispunite sva pitanja");
+      setError("Molim vas, odgovorite na sva pitanja");
     else setError(null);
   }, [itemsValue, error]);
 
@@ -122,7 +122,11 @@ export default function IspunjavanjeComponent(props) {
           name="age"
           type="number"
           value={age}
-          onChange={(e) => setAge(e.target.value)}
+          onChange={(e) =>
+            e.target.value >= 11 &&
+            e.target.value <= 14 &&
+            setAge(e.target.value)
+          }
         />
         <select
           name="gender"

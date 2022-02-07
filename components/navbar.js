@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import styles from "../styles/navbar.module.css";
+import SignIn from "./signin.js";
+import { useAuth } from "./authcontext.js";
 
 export default function Navbar() {
   const router = useRouter();
@@ -10,6 +12,10 @@ export default function Navbar() {
   const [show, setShow] = useState(false);
   const [userToken, setUserToken] = useState("");
   const [showToken, setShowToken] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const { isAuthenticated, isRegistered } = useAuth();
+
   return (
     <>
       <nav>
@@ -28,6 +34,25 @@ export default function Navbar() {
               <a className={styles.navlink}>Suradnje</a>
             </Link>
           </div>
+          <hr />
+          {/*
+          {!(isAuthenticated || isRegistered) && (
+            <div className="auth">
+              <button
+                onClick={() => {
+                  if (!showLogin) {
+                    setShowLogin(true);
+                    setShow(false);
+                  }
+                }}
+                className={styles.navlink}
+              >
+                Sign up
+              </button>
+              <button className={styles.navlink}>Log in</button>
+              <br />
+            </div>
+          )}*/}
         </div>
         <button
           className={styles.hidetoggle}
@@ -39,6 +64,7 @@ export default function Navbar() {
           ...
         </button>
       </nav>
+      <SignIn showLogin={showLogin} setShowLogin={setShowLogin} />
     </>
   );
 }

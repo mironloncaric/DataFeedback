@@ -8,6 +8,15 @@
     text-shadow: 5px 5px 5px lightgray;
     margin: 0 10px;
     cursor: pointer;
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    font-size: 1em;
+    font-weight: 300;
+    font-family: arial;
 }
 .navlogo {
     font-family: arial;
