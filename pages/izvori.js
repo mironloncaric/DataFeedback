@@ -50,7 +50,7 @@ export default function Izvori() {
         Dostupno <a href="https://www.bib.irb.hr/949304">ovdje.</a>
       </p>
       <p>
-        Radoš, S., Zdraveva, M., & Žeželj, I. (2019). Status dynamics in the
+        Radoš, S., Zdraveva, M., & Žeželj, I. (2019). us dynamics in the
         classroom: Roma children’s implicit and explicit preference for majority
         children across age groups. Journal of Cross-Cultural Psychology, 50(4),
         577-593.

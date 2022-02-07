@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import styles from "../styles/navbar.module.css";
-import SignIn from "./signin.js";
-import { useAuth } from "./authcontext.js";
+//import SignIn from "./signin.js";
+//import { useAuth } from "./authcontext.js";
 
 export default function Navbar() {
   const router = useRouter();
@@ -14,7 +14,7 @@ export default function Navbar() {
   const [showToken, setShowToken] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
 
-  const { isAuthenticated, isRegistered } = useAuth();
+  //const { isAuthenticated, isRegistered } = useAuth();
 
   return (
     <>
@@ -64,7 +64,6 @@ export default function Navbar() {
           ...
         </button>
       </nav>
-      <SignIn showLogin={showLogin} setShowLogin={setShowLogin} />
     </>
   );
 }

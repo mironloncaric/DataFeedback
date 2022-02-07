@@ -4,13 +4,13 @@ import { useRouter } from "next/router";
 
 import { scales } from "../scales.js";
 import Image from "next/image";
-import VerifyToken from "../components/verifyemail.js";
+//import VerifyToken from "../components/verifyemail.js";
 import styles from "../styles/index.module.css";
 
 export default function LandingPage() {
   const list = Object.keys(scales);
   const router = useRouter();
-  const { emailVerifyToken } = router.query;
+  //const { emailVerifyToken } = router.query;
   return (
     <>
       <div className="landing-page-poster">
@@ -62,7 +62,7 @@ export default function LandingPage() {
           </div>
         ))}
       </div>
-      {emailVerifyToken && <VerifyToken token={emailVerifyToken} />}
+      {/*emailVerifyToken && <VerifyToken token={emailVerifyToken} />*/}
     </>
   );
 }
