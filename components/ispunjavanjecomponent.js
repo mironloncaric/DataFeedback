@@ -122,11 +122,10 @@ export default function IspunjavanjeComponent(props) {
           name="age"
           type="number"
           value={age}
-          onChange={(e) =>
-            e.target.value >= 11 &&
-            e.target.value <= 14 &&
-            setAge(e.target.value)
-          }
+          onChange={(e) => {
+            setAge(e.target.value);
+            if (e.target.value <= 14 && e.target.value >= 11) setError("");
+          }}
         />
         <select
           name="gender"
@@ -140,6 +139,12 @@ export default function IspunjavanjeComponent(props) {
           className="align-center btn-outline"
           onClick={() => {
             setIsSubmited(true);
+            if (age >= 14 || age <= 11) {
+              setError(
+                "Norme nisu dostupne za tu dom. Molim vas, unesite dob između 11 i 14 godina"
+              );
+              return;
+            }
             if (!error) {
               console.log("No error");
               const scaleSums = {};
