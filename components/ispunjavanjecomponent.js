@@ -21,8 +21,12 @@ export default function IspunjavanjeComponent(props) {
   useEffect(() => {
     if (Object.keys(itemsValue).length < props.scale.pitanja.length)
       setError("Molim vas, odgovorite na sva pitanja");
-    else setError(null);
-  }, [itemsValue, error]);
+    else if (age > 14 || age < 11)
+      setError(
+        "Norme nisu dostupne za ovu dob. Molim vas, unesite dob između 11 i 14 godina."
+      );
+    else setError("");
+  }, [itemsValue, error, age]);
 
   if (props) {
     return (
@@ -139,14 +143,8 @@ export default function IspunjavanjeComponent(props) {
           className="align-center btn-outline"
           onClick={() => {
             setIsSubmited(true);
-            if (age >= 14 || age <= 11) {
-              setError(
-                "Norme nisu dostupne za tu dom. Molim vas, unesite dob između 11 i 14 godina"
-              );
-              return;
-            }
-            if (!error) {
-              console.log("No error");
+            if (!error || error.length === 0) {
+              //console.log("No error");
               const scaleSums = {};
               Object.keys(props.scale.sumsTemplate).forEach((item, key) => {
                 let a = 0;
@@ -158,7 +156,8 @@ export default function IspunjavanjeComponent(props) {
               props.setPropsSums(scaleSums);
               props.setPropsAge(age);
               props.setPropsGender(gender);
-              console.log(scaleSums);
+              props.setUpisDisplay(false);
+              //console.log(scaleSums);
               /*
             if (token) {
               fetch("/api/post-token", {
@@ -179,7 +178,6 @@ export default function IspunjavanjeComponent(props) {
               props.setUpisDisplay(false);
             }
             */
-              props.setUpisDisplay(false);
             }
           }}
         >
