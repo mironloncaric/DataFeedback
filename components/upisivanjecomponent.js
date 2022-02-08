@@ -10,6 +10,8 @@ export default function IspunjavanjeComponent(props) {
   const [age, setAge] = useState(14);
   const [sums, setSums] = useState();
   const [itemsValue, setItemsValue] = useState({});
+  const [error, setError] = useState("");
+  const [isSubmited, setIsSubmited] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,17 +44,17 @@ export default function IspunjavanjeComponent(props) {
           />
         </div>
       ))}
+      <div>{error && isSubmited && <div className="error">{error}</div>}</div>
       <>
         <label htmlFor="age">Starost</label>
         <input
           name="age"
           type="number"
           value={age}
-          onChange={(e) =>
-            e.target.value >= 11 &&
-            e.target.value <= 14 &&
-            setAge(e.target.value)
-          }
+          onChange={(e) => {
+            setAge(e.target.value);
+            if (e.target.value <= 14 && e.target.value >= 11) setError("");
+          }}
         />
         <select
           name="gender"
@@ -66,15 +68,22 @@ export default function IspunjavanjeComponent(props) {
       <button
         className="align-center btn-outline"
         onClick={() => {
+          setIsSubmited(true);
           Object.keys(props.scale.sumsImena).forEach((key) => {
-            console.log(key);
             if (!itemsValue[key]) itemsValue[key] = 0;
           });
-          console.log(itemsValue);
-          props.setPropsSums(itemsValue);
-          props.setPropsAge(age);
-          props.setPropsGender(gender);
-          props.setUpisDisplay(false);
+          if (age < 11 || age > 14) {
+            setError(
+              "Norme nisu dostupne za ovu dob. Molim vas, unesite dob između 11 i 14 godina."
+            );
+            return;
+          }
+          if (error.length === 0) {
+            props.setPropsSums(itemsValue);
+            props.setPropsAge(age);
+            props.setPropsGender(gender);
+            props.setUpisDisplay(false);
+          }
         }}
       >
         Submit
