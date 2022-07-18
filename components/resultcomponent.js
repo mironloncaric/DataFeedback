@@ -7,6 +7,7 @@ export default function ResultComponent(props) {
   const n_skala = props.scale.n_skala;
   const positive = props.scale.positive;
   const sumsImena = props.scale.sumsImena;
+  const skale = props.scale.skale;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,7 +18,7 @@ export default function ResultComponent(props) {
       <h3>{props.scale.skalaIme}</h3>
       {Object.keys(granice).map((item, key) => (
         <div key={item}>
-          <h5>{sumsImena[item]}</h5>
+          <h5>{`${sumsImena[item]} ${skale[key]}`}</h5>
           {(!props.propsSums[item] ||
             props.propsSums[item] <= granice[item][0]) && (
             <p>
